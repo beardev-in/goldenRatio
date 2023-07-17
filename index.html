@@ -5,54 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    .div1{
-        width: 900px;
-        height: 555px;
-        background-color: blue;
-    }
-    .div2{
-        width: 345px;
-        height: 555px;
-        background-color: rgb(33, 29, 23);
-    }
-    .div3{
-        width: 345px;
-        height: 210px;
-        background-color: aqua;
-    }
-    .div4{
-        width: 133px;
-        height: 210px;
-        background-color: black;
-    }
-    .div5{
-        width: 133px;
-        height: 77px;
-        background-color: bisque;
-    }
-    .div6{
-        width: 51px;
-        height: 77px;
-        background-color: rgb(255, 255, 255);
-    }
-</style>
-<body>
-    <div class="div1">
-        <div class="div2">
-            <div class="div3">
-                <div class="div4">
-                    <div class="div5">
-                        <div class="div6">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>
+<body>
+    
 </body>
 <script>
-
+    let width, height, initialWidth, initialHeight;
+    let body = document.querySelector("body");
+    let div1 = document.createElement("div");
+    initialWidth = 900;
+    initialHeight = 555;
+    div1.style.width = `${initialWidth}px`;
+    div1.style.height = `${initialHeight}px`;
+    div1.style.backgroundColor = `black`;
+    body.appendChild(div1);
+    for(let i=0; i<5; i++){
+        if(i==0){
+            div2 = document.createElement("div");
+            width = initialWidth - Math.trunc(initialWidth/1.62); //
+            height = initialHeight;
+            div2.style.width = `${width}px`;
+            div2.style.height = `${height}px`;
+            div2.style.backgroundColor = `grey`;
+            div1.appendChild(div2);
+        }
+        if(i==1){
+            div3 = document.createElement("div");
+            //with remains same
+            height = height - width;
+            div3.style.width = `${width}px`;
+            div3.style.height = `${height}px`;
+            div3.style.backgroundColor = `wheat`;
+            div2.appendChild(div3);
+        }
+        if(i==2){
+            div4 = document.createElement("div");
+            width = width - Math.trunc(width/1.62);
+            //height remains same
+            div4.style.width = `${width}px`;
+            div4.style.height = `${height}px`;
+            div4.style.backgroundColor = `blue`;
+            div3.appendChild(div4);
+        }
+        if(i==3){
+            div5 = document.createElement("div");
+            //width stays same
+            height = height - width; //width gives side of square
+            div5.style.width = `${width}px`;
+            div5.style.height = `${height}px`;
+            div5.style.backgroundColor = `orange`;
+            div4.appendChild(div5);
+        }
+        if(i==4){
+            div6 = document.createElement("div");
+            width = width - Math.trunc(width/1.62);
+            //height stays same
+            div6.style.width = `${width}px`;
+            div6.style.height = `${height}px`;
+            div6.style.backgroundColor = `white`;
+            div5.appendChild(div6);
+        }
+    }
+    
 </script>
 </html>
